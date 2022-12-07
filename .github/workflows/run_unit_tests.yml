@@ -29,4 +29,4 @@ jobs:
           ls
           pip list
           pytest ./test/test_model
-          pytest ./test/test_gui
+          pytest ./test/test_gui/test_windows.py
