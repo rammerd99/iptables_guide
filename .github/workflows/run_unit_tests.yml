@@ -19,16 +19,14 @@ jobs:
         run: python -c "import sys; print(sys.version)"
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install pytest
-          pip install opencv-python
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Install so
-        run: |
           sudo apt update
           sudo apt install libegl1
+          python -m pip install --upgrade pip
+          pip install pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test with pytest
         run: |
           ls
           pip list
           pytest ./test/test_model
+          pytest ./test/test_gui
